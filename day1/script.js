@@ -115,3 +115,40 @@ for (let key in newObj) {
 // }
 
 const checkArr = [1, 2, 3, "niraj"];
+
+for (let index of checkArr) {
+  console.log(checkArr[index]);
+}
+
+// <!--==============Exercise
+// Write a constructor for making “Book” objects. We will revisit this in the project at the end of this lesson. Your book objects should have the book’s title, author, the number of pages, and whether or not you have read the book.
+
+// Put a function into the constructor that can report the book info like so:
+
+// theHobbit.info() // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
+// Note: It is almost always best to return things rather than putting console.log() directly into the function. In this case, return the info string and log it after the function has been called:
+
+// console.log(theHobbit.info());===================
+
+function book(title, author, pageNo) {
+  this.title = title;
+  this.author = author;
+  this.pageNo = pageNo;
+  this.checkRead = function (a) {
+    return a === true
+      ? console.log("thank you for reading")
+      : console.log("you haven't read books");
+  };
+  this.info = " this is info";
+
+  this.theHobbit = () => {
+    this.Info = function (info) {
+      return console.log("i am from info");
+    };
+    return this.Info;
+  };
+}
+
+const Book = new book("niraj", "chemjong", 23);
+const infoFunction = Book.theHobbit();
+infoFunction();
